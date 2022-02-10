@@ -23,24 +23,7 @@
         }
     }
 
-    spl_autoload_register(function($class){
-        //echo LIB.'core/'.$class.".php";
-        if(file_exists(LIB.'core/'.$class.".php")) {
-            require_once(LIB.'core/'.$class.".php");
-        }
-    });
-
-    $controllerFile = "controller/".$controller.".php";
-    if(file_exists($controllerFile)){
-        require_once($controllerFile);
-        $controller = new $controller();
-        if(method_exists($controller, $method)){
-            $controller->{$method}($params);
-        }else{
-            echo "method not found";
-        }
-    }else{
-        echo "controller not found";
-    }
+    require_once("library/core/autoload.php");
+    require_once('library/core/load.php');
 
 ?>
