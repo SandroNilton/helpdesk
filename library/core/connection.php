@@ -8,7 +8,7 @@
             try {
                 $this->conect = new PDO($connection, DB_USER, DB_PASSWORD);
                 $this->conect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                echo 'connection ok';
+                //echo 'connection ok';
             } catch (PDOException $e) {
                 $this->conect = 'err connection';
                 echo 'ERR: '.$e->getMessage();

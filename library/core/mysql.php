@@ -15,7 +15,7 @@
             $this->strquery = $query;
             $this->arrvalues = $arrvalues;
             $insert = $this->connection->prepare($this->strquery);
-            $resinsert = $insert->execute($this->arrvalues);
+            $resinsert = $insert->execute($this->arrvalues);    
             if($resinsert){
                 $lastinsert = $this->connection->lastInsertId();
             }else{
@@ -40,6 +40,23 @@
             $result->execute();
             $data = $result->fetchall(PDO::FETCH_ASSOC);
             return $data;
+        }
+
+        //update
+        public function update(string $query, array $arrvalues){
+            $this->strquery = $query;
+            $this->arrvalues = $arrvalues;
+            $update = $this->connection->prepare($this->strquery);
+            $resexecute = $update->execute($this->arrvalues);
+            return $resexecute;
+        }
+
+        //delete
+        public function delete(string $query){
+            $this->strquery = $query;
+            $result = $this->connection->prepare($this->strquery);
+            $resexecute = $result->execute();
+            return $resexecute;
         }
 
     }

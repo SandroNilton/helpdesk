@@ -1,6 +1,7 @@
 <?php
 
     require_once("config/config.php");
+    require_once("helper/helper.php");
 
     $url = !empty($_GET['url']) ? $_GET['url'] : 'home/home';
     $arrUrl = explode("/", $url);
